@@ -9,14 +9,7 @@ on:
       - v*.*.*
 
 jobs:
-  get-version:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get latest release version number
-        id: get_version
-        uses: battila7/get-version-action@v2
   publish-npm:
-    needs: get-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,11 +17,14 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - name: Get latest release version number
+        id: get_version
+        uses: battila7/get-version-action@v2
       - run: |
-            echo "Version: $VERSION"
+          export VERSION=${{steps.get_version.outputs.version}} 
+          echo "Version: $VERSION"
+      - run: |
             npm version $VERSION
             npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          VERSION: ${{ jobs.get_version.steps.get_version.output.version }}
