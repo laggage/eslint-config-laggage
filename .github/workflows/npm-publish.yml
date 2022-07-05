@@ -15,9 +15,8 @@ jobs:
       - name: Get latest release version number
         id: get_version
         uses: battila7/get-version-action@v2
-    env:
-      VERSION: ${{ steps.get_version.outputs.version }}
   publish-npm:
+    needs: get-version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,4 +31,4 @@ jobs:
             npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          VERSION: ${{ jobs.get_version.env.VERSION }}
+          VERSION: ${{ jobs.get_version.steps.get_version.output.version }}
