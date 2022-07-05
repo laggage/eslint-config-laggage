@@ -31,4 +31,4 @@ jobs:
             npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          VERSION: ${{ jobs.get_version.steps.get_version.output.version }}
+          VERSION: ${{ jobs.get-version.steps.get_version.outputs.version }}
