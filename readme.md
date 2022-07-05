@@ -12,7 +12,7 @@ Create `.prettierrc.js` and `.eslintrc.js` files to the root of the project
 touch .prettierrc.js && touch .eslintrc.js
 ```
 
-<details>
+<details open>
 <summary>.eslintrc.js</summary>
 
 ```javascript
@@ -22,7 +22,7 @@ module.exports = {
 ```
 </details>
 
-<details>
+<details open>
 <summary>.prettierrc.js</summary>
 
 ```javascript
