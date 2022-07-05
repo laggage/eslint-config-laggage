@@ -1,0 +1,25 @@
+{
+    "name": "eslint-config-laggage",
+    "version": "1.0.0",
+    "description": "laggage's personal eslint configuration",
+    "main": "index.js",
+    "scripts": {},
+    "author": "laggage",
+    "license": "MIT",
+    "peerDependencies": {
+        "eslint": ">= 3",
+        "prettier": "> 2",
+        "typescript": "> 4.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.19.0",
+        "prettier": "^2.7.1",
+        "typescript": "^4.7.4"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.30.4",
+        "@typescript-eslint/parser": "^5.30.4",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1"
+    }
+}
