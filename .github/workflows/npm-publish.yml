@@ -23,8 +23,7 @@ jobs:
       - run: |
           export VERSION=${{steps.get_version.outputs.version}} 
           echo "Version: $VERSION"
-      - run: |
-            npm version $VERSION
-            npm publish
+          npm version $VERSION
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
